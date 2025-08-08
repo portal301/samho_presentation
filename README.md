@@ -68,9 +68,7 @@ samho_presentation/
 │   ├── data/                       # 3D 포인트 클라우드 데이터
 │   │   ├── bunny.xyz               # 깨끗한 버니 포인트 클라우드
 │   │   ├── bunny_noisy.xyz         # 노이즈가 있는 버니 포인트 클라우드
-│   │   ├── denoised_bunny.xyz      # 디노이징된 버니 포인트 클라우드
-│   │   ├── performance_report.txt  # 성능 평가 보고서
-│   │   └── summary_report.txt      # 요약 보고서
+│   │   └── denoised_bunny.xyz      # 디노이징된 버니 포인트 클라우드
 │   ├── point_cloud_loader.py       # 포인트 클라우드 로더
 │   ├── denoising_processor.py      # 디노이징 프로세서
 │   ├── performance_evaluator.py    # 성능 평가기
