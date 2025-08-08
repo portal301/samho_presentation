@@ -13,7 +13,7 @@ objpoints = []  # 3D 점 (세계 좌표)
 imgpoints = []  # 2D 점 (이미지 좌표)
 
 # 이미지 불러오기 (청중이 촬영한 이미지 사용)
-img = cv2.imread('data/sample.jpg')  # 이미지 경로를 여기에
+img = cv2.imread('data/checkerboard_sample.jpg')  # 이미지 경로를 여기에
 img = cv2.resize(img, (1280, 720))
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
