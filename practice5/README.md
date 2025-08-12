@@ -21,7 +21,7 @@ practice5/
 ├── point_cloud_loader.py        # 포인트 클라우드 로더
 ├── denoising_processor.py       # 디노이징 프로세서 (점 분포 균일화 포함) ⭐
 ├── performance_evaluator.py     # 성능 평가기
-├── result_saver.py              # 결과 저장기
+├── main.py              # 디노이즈 메인 실행 파일
 └── visualization_tools.py       # 3D 시각화 도구 (3개 창 동시 표시)
 ```
 
@@ -29,15 +29,20 @@ practice5/
 
 ### 3D 시각화 도구 (추천) ⭐
 ```bash
+cd practice5
 python visualization_tools.py
 ```
 
 ### 개별 모듈 실행
 ```bash
+cd practice5
 python point_cloud_loader.py      # 포인트 클라우드 로더
 python denoising_processor.py     # 디노이징 프로세서 (균일화 포함)
 python performance_evaluator.py   # 성능 평가기
-python result_saver.py            # 결과 저장기
+python visualization_tools.py     # 3개 창 시각화
+python rotate_bunny_axes.py       # 버니 좌표축 회전 (예: z축 45도)
+python shift_bunny_z.py           # 버니 z축 이동/중앙정렬
+python icp_demo.py                # 전역정합→ICP 정렬 데모
 ```
 
 ## 🎨 주요 기능

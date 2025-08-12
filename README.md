@@ -48,7 +48,6 @@ samho_presentation/
 │   ├── data/                       # 체커보드 이미지 및 샘플 데이터
 │   │   ├── checkerboard_sample.jpg # 캘리브레이션용 체커보드 이미지
 │   │   └── checkerboard_info.txt   # 체커보드 사용 가이드
-│   ├── calib_example.py            # 카메라 캘리브레이션 예제
 │   └── README.md                   # 캘리브레이션 학습 목표 및 예제 구조
 │
 ├── 📂 practice3/                    # 🌈 색상 공간 및 HSV 처리
@@ -62,6 +61,10 @@ samho_presentation/
 │   │   ├── noise_moon_1.png        # 노이즈가 있는 달 이미지 1
 │   │   └── noise_moon_2.png        # 노이즈가 있는 달 이미지 2
 │   ├── filter_comparison.py        # 다양한 필터 비교 예제
+│   ├── mean_filter_demo.py         # 평균 필터 단일 데모
+│   ├── gaussian_filter_demo.py     # 가우시안 필터 단일 데모
+│   ├── median_filter_demo.py       # 중간값 필터 단일 데모
+│   ├── bilateral_filter_demo.py    # 양방향 필터 단일 데모
 │   └── README.md                   # 노이즈 제거 필터 학습 가이드
 │
 ├── 📂 practice5/                    # 🌐 3D 포인트 클라우드 처리
@@ -71,10 +74,15 @@ samho_presentation/
 │   │   └── denoised_bunny.xyz      # 디노이징된 버니 포인트 클라우드
 │   ├── point_cloud_loader.py       # 포인트 클라우드 로더
 │   ├── denoising_processor.py      # 디노이징 프로세서
-│   ├── performance_evaluator.py    # 성능 평가기
-│   ├── result_saver.py             # 결과 저장기
 │   ├── visualization_tools.py      # 3D 시각화 도구 (3개 창 동시 표시)
+│   ├── rotate_bunny_axes.py        # 버니 좌표축 회전 (예: z축 45도)
+│   ├── shift_bunny_z.py            # 버니 z축 이동/중앙정렬
+│   ├── icp_demo.py                 # 전역정합+ICP 정렬 데모
 │   └── README.md                   # 3D 포인트 클라우드 처리 가이드
+│
+├── 📂 practice6/                    # 🧭 특징점과 기하 정렬
+│   ├── feature_matching_orb.py     # ORB 특징점 매칭 데모 
+│   └── README.md                   # Practice 6 가이드
 │
 ├── 📂 data/                         # 공통 데이터 파일
 │   ├── bunny.xyz                   # 깨끗한 버니 포인트 클라우드
@@ -132,7 +140,9 @@ python mission.py          # 미션 실행
 **실행 방법**:
 ```bash
 cd practice2
-python calib_example.py    # 기본 캘리브레이션
+python show_detected_corners.py   # 체커보드 코너 검출
+python show_reprojected_points.py # 리프로젝션 포인트 시각화
+python show_undistorted_image.py  # 왜곡 보정 결과
 ```
 
 ---
@@ -215,14 +225,22 @@ python result_saver.py         # 결과 저장기
 # 3D 포인트 클라우드 시각화 (3개 창)
 cd practice5 && python visualization_tools.py
 
-# 카메라 캘리브레이션
-cd practice2 && python calib_example.py
+# 카메라 캘리브레이션 (분리된 단일 데모)
+cd practice2 && python show_detected_corners.py
+cd practice2 && python show_reprojected_points.py
+cd practice2 && python show_undistorted_image.py
 
 # HSV 색상 추출
 cd practice3 && python hsv_example.py
 
 # 노이즈 제거 필터 비교
 cd practice4 && python filter_comparison.py
+
+# 3D ICP 정렬 데모 (전역정합→ICP)
+cd practice5 && python icp_demo.py
+
+# ORB 특징점 매칭
+cd practice6 && python feature_matching_orb.py
 ```
 
 ### 개별 Practice 실행
@@ -230,8 +248,10 @@ cd practice4 && python filter_comparison.py
 # Practice 1: 기본 그리기
 cd practice1 && python mission.py
 
-# Practice 2: 캘리브레이션
-cd practice2 && python calib_example.py
+# Practice 2: 캘리브레이션 (단일 데모)
+cd practice2 && python show_detected_corners.py
+cd practice2 && python show_reprojected_points.py
+cd practice2 && python show_undistorted_image.py
 
 # Practice 3: 색상 처리
 cd practice3 && python hsv_example.py
@@ -239,8 +259,12 @@ cd practice3 && python hsv_example.py
 # Practice 4: 노이즈 제거
 cd practice4 && python filter_comparison.py
 
-# Practice 5: 3D 포인트 클라우드
+# Practice 5: 3D 포인트 클라우드 및 ICP 데모
 cd practice5 && python visualization_tools.py
+cd practice5 && python icp_demo.py
+
+# Practice 6: ORB 특징점 매칭
+cd practice6 && python feature_matching_orb.py
 ```
 
 ## 🔧 주요 기능

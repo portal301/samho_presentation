@@ -13,7 +13,9 @@ OpenCV를 사용한 카메라 캘리브레이션 연습
 ```
 practice2/
 ├── README.md                    # 이 파일
-├── calib_example.py            # 카메라 캘리브레이션 예제
+├── show_detected_corners.py    # 체커보드 코너 검출 데모
+├── show_reprojected_points.py  # 리프로젝션 포인트 시각화 데모
+├── show_undistorted_image.py   # 왜곡 보정 단일 데모
 └── data/                       # 체커보드 이미지 및 샘플 데이터
     ├── checkerboard_sample.jpg # 캘리브레이션용 체커보드 이미지
     └── checkerboard_info.txt   # 체커보드 사용 가이드
@@ -21,9 +23,12 @@ practice2/
 
 ## 🚀 실행 방법
 
-### 기본 캘리브레이션
+### 데모 (각각 독립 실행)
 ```bash
-python calib_example.py
+cd practice2
+python show_detected_corners.py
+python show_reprojected_points.py
+python show_undistorted_image.py
 ```
 
 ## 🎨 주요 기능
@@ -32,6 +37,10 @@ python calib_example.py
 - **코너 검출**: `cv2.findChessboardCorners()` - 체커보드 코너 위치 검출
 - **코너 정밀화**: `cv2.cornerSubPix()` - 서브픽셀 정밀도로 코너 위치 정밀화
 - **코너 그리기**: `cv2.drawChessboardCorners()` - 검출된 코너 시각화
+
+### 단일 데모 분리 목적
+- 강의 시 “한 번 실행 → 한 화면 결과”를 명확히 보여주기 위해
+- `calib_example.py`가 띄우던 4개 창 중 오리지널 제외 3개를 각각 독립 스크립트로 제공
 
 ### 카메라 캘리브레이션
 - **카메라 캘리브레이션**: `cv2.calibrateCamera()` - 카메라 내부 파라미터 추정

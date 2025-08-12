@@ -8,6 +8,7 @@
 
 import open3d as o3d
 import numpy as np
+import os 
 
 def voxel_downsampling(pcd, voxel_size=0.05):
     """
@@ -127,6 +128,36 @@ def denoise_point_cloud(pcd, voxel_size=0.05, nb_neighbors=20, std_ratio=2.0,
     print("\n디노이징 과정 완료!")
     return denoised_pcd
 
+def save_point_cloud_to_xyz(pcd, output_filename):
+    """
+    포인트 클라우드를 XYZ 파일로 저장합니다.
+    
+    Args:
+        pcd: Open3D 포인트 클라우드 객체
+        output_filename (str): 출력 파일명
+    
+    Returns:
+        bool: 저장 성공 여부
+    """
+    try:
+        # 출력 디렉토리 생성
+        os.makedirs(os.path.dirname(output_filename), exist_ok=True)
+        
+        # 포인트 좌표를 numpy 배열로 변환
+        points_array = np.asarray(pcd.points)
+        
+        # XYZ 파일로 저장
+        with open(output_filename, 'w') as f:
+            for point in points_array:
+                f.write(f"{point[0]:.6f} {point[1]:.6f} {point[2]:.6f}\n")
+        
+        print(f"포인트 클라우드가 '{output_filename}' 파일로 저장되었습니다.")
+        return True
+        
+    except Exception as e:
+        print(f"오류: 파일 저장 실패 - {e}")
+        return False
+
 if __name__ == "__main__":
     # 테스트 실행
     from point_cloud_loader import load_bunny_data
@@ -137,6 +168,7 @@ if __name__ == "__main__":
     if noisy_pcd is not None:
         # 디노이징 수행
         denoised_pcd = denoise_point_cloud(noisy_pcd)
+        save_point_cloud_to_xyz(denoised_pcd, "data/denoised_bunny.xyz")
         print(f"\n최종 결과:")
         print(f"원본 포인트 수: {len(noisy_points)}")
         print(f"디노이징 후 포인트 수: {len(denoised_pcd.points)}")

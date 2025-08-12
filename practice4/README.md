@@ -26,6 +26,16 @@ practice4/
 python filter_comparison.py
 ```
 
+### 필터별 단일 데모 (z: 원본, x: 필터, ESC: 종료)
+```bash
+cd practice4
+python mean_filter_demo.py        # 평균 필터 (5x5)
+python gaussian_filter_demo.py    # 가우시안 필터 (5x5, sigma=0)
+python median_filter_demo.py      # 중간값 필터 (5x5)
+python bilateral_filter_demo.py   # 양방향 필터 (d=9, sc=75, ss=75)
+python morphology_filter_demo.py  # 모폴로지 (open->close, kernel=3x3)
+```
+
 ## 🎨 주요 기능
 
 ### 노이즈 제거 필터
@@ -40,6 +50,11 @@ python filter_comparison.py
 - **좌우 비교**: noise_moon_1.png와 noise_moon_2.png를 나란히 표시
 - **필터 정보**: 현재 적용된 필터 이름 표시
 - **실시간 전환**: 키를 누를 때마다 즉시 필터 적용
+
+### 단일 데모 모드
+- **z**: 원본 보기
+- **x**: 해당 스크립트의 필터 적용 결과 보기
+- **ESC**: 종료
 
 ### 노이즈 타입별 최적화
 - **가우시안 노이즈**: 평균 필터, 가우시안 필터 효과적
