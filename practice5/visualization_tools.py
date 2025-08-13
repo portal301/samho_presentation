@@ -12,6 +12,7 @@ import tkinter as tk
 from tkinter import ttk
 import threading
 import time
+import os 
 
 class PointCloudVisualizer:
     def __init__(self):
@@ -74,7 +75,9 @@ class PointCloudVisualizer:
         try:
             # 1. 원본 버니 (깨끗한 버전)
             print("원본 버니 로딩...")
-            original_points, original_pcd = self.load_xyz_file("data/bunny.xyz")
+            script_dir = os.path.dirname(os.path.abspath(__file__))
+            output1_path = os.path.join(script_dir, "data/bunny.xyz")
+            original_points, original_pcd = self.load_xyz_file(output1_path)
             if original_pcd is not None:
                 # 토끼를 올바른 방향으로 회전
                 original_pcd = self.rotate_point_cloud(original_pcd)
@@ -87,7 +90,9 @@ class PointCloudVisualizer:
             
             # 2. 노이즈 버니
             print("노이즈 버니 로딩...")
-            noisy_points, noisy_pcd = self.load_xyz_file("data/bunny_noisy_extreme.xyz")
+            script_dir = os.path.dirname(os.path.abspath(__file__))
+            output2_path = os.path.join(script_dir,"data/bunny_noisy_extreme.xyz")
+            noisy_points, noisy_pcd = self.load_xyz_file(output2_path)
             if noisy_pcd is not None:
                 # 토끼를 올바른 방향으로 회전
                 noisy_pcd = self.rotate_point_cloud(noisy_pcd)
@@ -100,7 +105,9 @@ class PointCloudVisualizer:
             
             # 3. 디노이징된 버니 (존재하는 경우)
             print("디노이징된 버니 로딩...")
-            denoised_points, denoised_pcd = self.load_xyz_file("data/denoised_bunny.xyz")
+            script_dir = os.path.dirname(os.path.abspath(__file__))
+            output3_path = os.path.join(script_dir,"data/denoised_bunny.xyz")
+            denoised_points, denoised_pcd = self.load_xyz_file(output3_path)
             if denoised_pcd is not None:
                 # 토끼를 올바른 방향으로 회전
                 denoised_pcd = self.rotate_point_cloud(denoised_pcd)

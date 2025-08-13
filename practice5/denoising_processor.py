@@ -168,7 +168,9 @@ if __name__ == "__main__":
     if noisy_pcd is not None:
         # 디노이징 수행
         denoised_pcd = denoise_point_cloud(noisy_pcd)
-        save_point_cloud_to_xyz(denoised_pcd, "data/denoised_bunny.xyz")
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        output_path = os.path.join(script_dir,"data/denoised_bunny.xyz")
+        save_point_cloud_to_xyz(denoised_pcd, output_path)
         print(f"\n최종 결과:")
         print(f"원본 포인트 수: {len(noisy_points)}")
         print(f"디노이징 후 포인트 수: {len(denoised_pcd.points)}")

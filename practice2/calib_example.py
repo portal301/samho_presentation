@@ -1,5 +1,6 @@
 import cv2
 import numpy as np
+import os
 
 # 체커보드 내부 코너 수 (가로, 세로)
 CHECKERBOARD = (9, 6)
@@ -13,7 +14,9 @@ objpoints = []  # 3D 점 (세계 좌표)
 imgpoints = []  # 2D 점 (이미지 좌표)
 
 # 이미지 불러오기 (청중이 촬영한 이미지 사용)
-img = cv2.imread('data/checkerboard_sample.jpg')  # 이미지 경로를 여기에
+script_dir = os.path.dirname(os.path.abspath(__file__))
+img_path = os.path.join(script_dir, 'data/checkerboard_sample.jpg')
+img = cv2.imread(img_path)  # 이미지 경로를 여기에
 img = cv2.resize(img, (1280, 720))
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 

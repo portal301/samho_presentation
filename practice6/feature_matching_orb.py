@@ -25,7 +25,8 @@ import numpy as np
 # ------------------------------------------------------------
 # 1) 입력 이미지 경로 설정 및 로드
 # ------------------------------------------------------------
-img_path = os.path.join("data", "candies.png")
+script_dir = os.path.dirname(os.path.abspath(__file__))
+img_path = os.path.join(script_dir, "data", "candies.png")
 
 print("=" * 60)
 print("ORB 특징점 매칭 데모 시작")

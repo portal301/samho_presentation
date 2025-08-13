@@ -8,7 +8,7 @@ XYZ 파일에서 포인트 클라우드 데이터를 로드하는 기능을 제�
 
 import open3d as o3d
 import numpy as np
-
+import os 
 def load_xyz_file(filepath):
     """
     XYZ 파일에서 포인트 클라우드 데이터를 로드합니다.
@@ -56,12 +56,16 @@ def load_bunny_data():
     print("=" * 30)
     
     # 노이즈가 있는 버니 데이터 로드
-    noisy_points, noisy_pcd = load_xyz_file("data/bunny_noisy_extreme.xyz")
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    pcd_file = os.path.join(script_dir,"data/bunny_noisy_extreme.xyz")
+    noisy_points, noisy_pcd = load_xyz_file(pcd_file)
     if noisy_points is None:
         return None, None, None, None
     
     # 깨끗한 버니 데이터 로드
-    clean_points, clean_pcd = load_xyz_file("data/bunny.xyz")
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    pcd2_file = os.path.join(script_dir,"data/bunny.xyz")
+    clean_points, clean_pcd = load_xyz_file(pcd2_file)
     if clean_points is None:
         return None, None, None, None
     

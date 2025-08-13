@@ -1,7 +1,9 @@
 import cv2
 import sys
-
-src = cv2.imread('data/candies.png')
+import os
+script_dir = os.path.dirname(os.path.abspath(__file__))
+img_path = os.path.join(script_dir,'data/candies.png')
+src = cv2.imread(img_path)
 
 if src is None:
     print('Image load failed!')

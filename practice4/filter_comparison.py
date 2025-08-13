@@ -18,9 +18,10 @@ def load_noise_images():
         tuple: (noise_moon_1.png, noise_moon_2.png)
     """
     # 이미지 경로
-    img1_path = "data/noise_moon_1.png"
-    img2_path = "data/noise_moon_2.png"
-    
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    img1_path = os.path.join(script_dir, "data/noise_moon_1.png")
+    img2_path = os.path.join(script_dir, "data/noise_moon_2.png")
+
     # 이미지 로드
     img1 = cv2.imread(img1_path)
     img2 = cv2.imread(img2_path)
