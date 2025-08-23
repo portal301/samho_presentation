@@ -1,0 +1,25 @@
+{
+    "info": {
+        "sensor": {
+            "manufacturer": "LUCID Vision Labs",
+            "model": "PHX004S-CC",
+            "image_size_px": [720, 540],
+            "max_fps": 286
+        },
+        "lens":{
+            "focal_length_mm": 8.0,
+            "optimal_distance_mm": 50.0
+        }
+    },
+    "settings": {
+        "fps": 100,
+        "exposure_us": 0,
+        "triggered_by": "LevelHigh",
+        "px_to_m": 0.00003611,
+        "note": [
+            "0.064815 = 35mm/540px",
+            "0.03611 = 19.5mm/540px",
+            "https://thinklucid.com/lens-calculator/"
+        ]
+    }
+}

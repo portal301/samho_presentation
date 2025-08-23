@@ -1,0 +1,38 @@
+{
+    "laser0": {
+        "color": "green",
+        "roi_center": [350, 350],
+        "roi_x_range": [-100, 10],
+        "roi_y_range": [-30, 120],
+        "rotate": 270,
+        "invert_y_axis": false,
+        "fix_roi": false
+    },
+    "laser1": {
+        "color": "red",
+        "roi_center": [450, 350],
+        "roi_x_range": [-60, 10],
+        "roi_y_range": [-15, 60],
+        "rotate": 0,
+        "invert_y_axis": true,
+        "fix_roi": true
+    },
+    "color_hls_filter":{
+        "red":{
+            "hls_h1_range": [0, 5],
+            "hls_h2_range": [175, 180],
+            "hls_l_range": [100, 255],
+            "hls_s_range": [0, 255]
+        },
+        "green":{
+            "hls_h_range": [30, 100],
+            "hls_l_range": [45, 255],
+            "hls_s_range": [30, 255]
+        },
+        "blue":{
+            "hls_h_range": [90, 130],
+            "hls_l_range": [100, 140],
+            "hls_s_range": [0, 255]
+        }
+    }
+}
